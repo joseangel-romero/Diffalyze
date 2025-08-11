@@ -4,7 +4,7 @@
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-brightgreen)](https://diffalyze.app)
 [![Made with ❤️](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-red.svg)](https://github.com/yourusername/diffalyze)
 
-> **Professional text comparator for the modern web** 🌟
+> **Text comparator for the modern web** 🌟
 
 A lightning-fast, feature-rich diff tool that analyzes text differences, enables intelligent merging, and provides a professional-grade experience entirely in your browser.
 
@@ -305,15 +305,14 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 
 ## 📞 Support
 
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/yourusername/diffalyze/issues)
-- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/yourusername/diffalyze/discussions)  
-- 📧 **Contact**: [your.email@example.com](mailto:your.email@example.com)
-- 💬 **Community**: [Discord Server](https://discord.gg/diffalyze)
+- 🐛 **Bug Reports**: [GitHub Issues](joseangel-romero/Diffalyze/issues)
+- 💡 **Feature Requests**: [GitHub Discussions](joseangel-romero/Diffalyze/discussions)  
+- 📧 **Contact**: [your.email@example.com](contact@romeroja.com)
 
 ---
 
-**[⭐ Star this repo](https://github.com/yourusername/diffalyze)** if Diffalyze helped you!
+**[⭐ Star this repo](https://github.com/joseangel-romero/Diffalyze)** if Diffalyze helped you!
 
-Made with ❤️ by [Your Name](https://github.com/joseangel-romero)
+Made with ❤️ by [Jose Romero](https://github.com/joseangel-romero)
 
 [🌐 Website](https://diffalyze.com)

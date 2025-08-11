@@ -1,0 +1,71 @@
+/* ==========================================================================
+   CUSTOM SCROLLBAR STYLES
+   Premium design matching buttons with gradient effects
+   ========================================================================== */
+
+/* Custom scrollbar with premium design matching buttons */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, 
+        rgba(26, 26, 28, 1) 0%, 
+        rgba(36, 36, 38, 1) 100%);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, 
+        #db2777 0%, 
+        #ec4899 50%,
+        #f472b6 100%);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 2px 8px rgba(236, 72, 153, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, 
+        #ec4899 0%, 
+        #f472b6 50%,
+        #f9a8d4 100%);
+    box-shadow: 
+        0 4px 12px rgba(236, 72, 153, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(135deg, 
+        #be185d 0%, 
+        #db2777 100%);
+    transform: scale(0.95);
+}
+
+::-webkit-scrollbar-corner {
+    background: rgba(26, 26, 28, 1);
+}
+
+/* Firefox scrollbar support */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #ec4899 rgba(26, 26, 28, 1);
+}
+
+/* Scroll synchronization for diff columns */
+.diff-column {
+    overflow: auto !important;
+    scroll-behavior: auto !important;
+}
+
+/* Disable scroll behavior interference */
+* {
+    scroll-behavior: auto !important;
+}

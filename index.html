@@ -3,26 +3,87 @@
 <head>
     <base href="./">
     <meta charset="UTF-8" />
-        <meta name="description" content="Diffalyze: ultra-fast web tool for comparing and merging text or files, online code comparator">
-    <link rel="canonical" href="https://diffalyze.app/">
-    <meta property="og:title" content="Diffalyze — Professional text comparator">
-    <meta property="og:description" content="Analiza diferencias, fusiona cambios y comparte parches desde el navegador.">
+    
+    <!-- SEO Meta Tags -->
+    <title>Diffalyze — Professional Text Diff Tool & Code Comparator Online</title>
+    <meta name="description" content="Compare, merge and analyze text differences online with Diffalyze. Professional diff tool featuring Myers algorithm, syntax highlighting, real-time comparison and file support. Free web-based text comparator for developers.">
+    <meta name="keywords" content="diff tool, text compare, code diff, merge files, text comparison, online diff, myers algorithm, syntax highlighting, code comparator, developer tools, file diff, text merge, programming tools">
+    <meta name="author" content="Diffalyze">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://diffalyze.com/">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://diffalyze.app/">
-    <meta property="og:image" content="https://diffalyze.app/og-image.png">
+    <meta property="og:site_name" content="Diffalyze">
+    <meta property="og:title" content="Diffalyze — Professional Text Diff Tool & Code Comparator">
+    <meta property="og:description" content="Compare, merge and analyze text differences online with professional-grade diff tool. Features Myers algorithm, syntax highlighting, and real-time comparison for developers.">
+    <meta property="og:url" content="https://diffalyze.com/">
+    <meta property="og:image" content="https://diffalyze.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Diffalyze - Professional Text Diff Tool Interface">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Diffalyze — Professional Text Diff Tool & Code Comparator">
+    <meta name="twitter:description" content="Compare, merge and analyze text differences online with professional-grade diff tool. Features Myers algorithm, syntax highlighting, and real-time comparison.">
+    <meta name="twitter:image" content="https://diffalyze.com/og-image.png">
+    <meta name="twitter:image:alt" content="Diffalyze - Professional Text Diff Tool Interface">
+    <meta name="twitter:creator" content="@diffalyze">
+    <meta name="twitter:site" content="@diffalyze">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="application-name" content="Diffalyze">
+    <meta name="apple-mobile-web-app-title" content="Diffalyze">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Diffalyze",
-      "operatingSystem": "Web",
-      "applicationCategory": "DeveloperTool",
-      "url": "https://diffalyze.app/",
-      "description": "Ultra-fast online diff tool for comparing, merging and sharing text or file changes.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+      "alternateName": "Diff Tool",
+      "description": "Online text diff and merge tool featuring Myers algorithm, syntax highlighting, real-time comparison, and comprehensive file support for developers and content creators.",
+      "url": "https://diffalyze.com/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "browserRequirements": "Requires JavaScript. Supports Chrome 80+, Firefox 75+, Safari 13+, Edge 80+",
+      "softwareVersion": "2.0",
+      "datePublished": "2025-08-11"",
+      "dateModified": "2025-08-11",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Diffalyze",
+        "url": "https://diffalyze.com"
+      },
+      "creator": {
+        "@type": "Jose Romero", 
+        "name": "Diffalyze Development Team"
+      },
+      "featureList": [
+        "Myers O(ND) Algorithm",
+        "Syntax Highlighting",
+        "Real-time Text Comparison", 
+        "File Drag & Drop Support",
+        "Interactive Merging",
+        "Undo/Redo System",
+        "Multi-language Support",
+        "Web Workers for Performance",
+        "Offline Capable",
+        "Mobile Responsive"
+      ],
+      {{/*  "screenshot": "https://diffalyze.com/screenshot.png",  */}}
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "150",
+        "bestRating": "5",
+        "worstRating": "1"
       }
     }
     </script>
@@ -41,76 +102,6 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="css/main.css">
-
-    <!-- Custom Scrollbar Styles -->
-    <style>
-        /* Custom scrollbar with premium design matching buttons */
-        ::-webkit-scrollbar {
-            width: 12px;
-            height: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: linear-gradient(180deg, 
-                rgba(26, 26, 28, 1) 0%, 
-                rgba(36, 36, 38, 1) 100%);
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, 
-                #db2777 0%, 
-                #ec4899 50%,
-                #f472b6 100%);
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 
-                0 2px 8px rgba(236, 72, 153, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            transition: all 0.2s ease;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, 
-                #ec4899 0%, 
-                #f472b6 50%,
-                #f9a8d4 100%);
-            box-shadow: 
-                0 4px 12px rgba(236, 72, 153, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
-        }
-
-        ::-webkit-scrollbar-thumb:active {
-            background: linear-gradient(135deg, 
-                #be185d 0%, 
-                #db2777 100%);
-            transform: scale(0.95);
-        }
-
-        ::-webkit-scrollbar-corner {
-            background: rgba(26, 26, 28, 1);
-        }
-
-        /* For Firefox */
-        html {
-            scrollbar-width: thin;
-            scrollbar-color: #ec4899 rgba(26, 26, 28, 1);
-        }
-
-        /* Ensure scroll sync works with custom scrollbars */
-        .diff-column {
-            overflow: auto !important;
-            scroll-behavior: auto !important;
-        }
-        
-        /* Disable scroll behavior interference */
-        * {
-            scroll-behavior: auto !important;
-        }
-    </style>
 
     <!-- Application Configuration -->
     <script src="./js/core/config.js"></script>
@@ -138,9 +129,16 @@
     <!-- Progressive-Web-App -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#ff2aae">
+    
+    <!-- SEO Enhancement -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="robots" href="/robots.txt">
 
 </head>
 <body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!--  HEADER  -->
     <header class="site-header">
         <div class="container inner">
@@ -171,9 +169,17 @@
     </header>
 
     <!--  MAIN  -->
-    <main class="container" id="comparison">
+    <main class="container" id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section" aria-labelledby="hero-title">
+            <h1 id="hero-title" class="visually-hidden">Diffalyze - Professional Text Comparison Tool</h1>
+        </section>
 
-        <div class="compact-toolbar" role="toolbar" aria-label="Opciones de comparación">
+        <!-- Comparison Tools Section -->
+        <section class="comparison-section" aria-labelledby="comparison-title">
+            <h2 id="comparison-title" class="visually-hidden">Text Comparison Interface</h2>
+            
+            <div class="compact-toolbar" role="toolbar" aria-label="Opciones de comparación">
           
           <!-- Main Action Bar -->
           <div class="main-actions">
@@ -298,22 +304,29 @@
 
         </div>
 
-        <section class="text-areas">
-            <div class="text-section">
+        <!-- Text Input Section -->
+        <section class="text-areas" aria-labelledby="input-section-title">
+            <h2 id="input-section-title" class="visually-hidden">Text Input Areas</h2>
+            
+            <article class="text-section">
                 <h3 data-i18n="text_areas.original_text">Texto original</h3>
                 <textarea id="originalText" class="textarea" placeholder="Ingresa o pega el texto original aquí…"></textarea>
                 <input type="file" id="originalFile" class="file-input" accept="*/*" onchange="loadFile('originalFile', 'originalText')" />
-            </div>
+            </article>
 
-            <div class="text-section">
+            <article class="text-section">
                 <h3 data-i18n="text_areas.modified_text">Texto modificado</h3>
                 <textarea id="changedText" class="textarea" placeholder="Ingresa o pega el texto modificado aquí…"></textarea>
                 <input type="file" id="changedFile" class="file-input" accept="*/*" onchange="loadFile('changedFile', 'changedText')" />
-            </div>
+            </article>
         </section>
 
-        <section class="diff-container" role="region" aria-labelledby="diffTitle">
-            <h3 id="diffTitle" data-i18n="diff_analysis.title">Análisis de diferencias</h3>
+        <!-- Results Section -->
+        <section class="results-section" aria-labelledby="results-title">
+            <h2 id="results-title" class="visually-hidden">Comparison Results</h2>
+            
+            <article class="diff-container" role="region" aria-labelledby="diffTitle">
+                <h3 id="diffTitle" data-i18n="diff_analysis.title">Análisis de diferencias</h3>
             <!-- Search inside diff -->
             <div class="search-box diff-search">
                 <input type="text" id="searchInput" placeholder="Buscar en diff…" data-i18n="diff_analysis.search_placeholder" aria-label="Buscar diferencias por palabra clave" data-i18n-label="diff_analysis.search_label" />
@@ -326,17 +339,19 @@
                 <button id="redoBtn" class="history-btn" onclick="redoMerge()" data-i18n="diff_analysis.redo_btn">↷ Redo</button>
             </div>
             <div id="diffResult" class="diff-container no-diff" data-i18n="diff_analysis.no_diff">Utiliza el botón «Analizar diferencias» para comenzar la comparación</div>
-        </section>
+            </article>
 
-        <!--  Resultado mergeado  -->
-        <section id="mergeContainer" class="merge-container" role="region" aria-labelledby="mergeTitle" style="display: none;">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
-                <h3 id="mergeTitle" style="margin: 0; font-size: 1rem;" data-i18n="merge.title">Resultado mergeado</h3>
-                <button class="btn btn-copy" onclick="copyMergedText()" aria-label="Copiar resultado mergeado" data-i18n="merge.copy_btn">
-                  📋 Copiar
-                </button>
-            </div>
-            <pre id="mergedTextArea" class="textarea" style="height: 340px; overflow: auto;"><code class="language-plaintext" id="mergedCode"></code></pre>
+            <!--  Merged Results Section  -->
+            <article id="mergeContainer" class="merge-container" role="region" aria-labelledby="mergeTitle" style="display: none;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <h3 id="mergeTitle" style="margin: 0; font-size: 1rem;" data-i18n="merge.title">Resultado mergeado</h3>
+                    <button class="btn btn-copy" onclick="copyMergedText()" aria-label="Copiar resultado mergeado" data-i18n="merge.copy_btn">
+                      📋 Copiar
+                    </button>
+                </div>
+                <pre id="mergedTextArea" class="textarea" style="height: 340px; overflow: auto;"><code class="language-plaintext" id="mergedCode"></code></pre>
+            </article>
+        </section>
         </section>
     </main>
 

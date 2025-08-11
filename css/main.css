@@ -6,6 +6,7 @@
 /* ─────────── Base Styles ─────────── */
 @import url('./_variables.css');
 @import url('./_base.css');
+@import url('./_accessibility.css');
 
 /* ─────────── Layout Components ─────────── */
 @import url('./layout/header.css');
@@ -23,6 +24,7 @@
 @import url('./components/toast.css');
 @import url('./components/modal.css');
 @import url('./components/messages.css');
+@import url('./components/scrollbar.css');
 
 /* ─────────── Utilities ─────────── */
 @import url('./_utilities.css');
