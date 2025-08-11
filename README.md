@@ -1,8 +1,8 @@
 # 🚀 Diffalyze
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-brightgreen)](https://diffalyze.app)
-[![Made with ❤️](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-red.svg)](https://github.com/yourusername/diffalyze)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-brightgreen)](https://diffalyze.com)
+[![Made with ❤️](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-red.svg)](https://github.com/joseangel-romero/diffalyze)
 
 > **Text comparator for the modern web** 🌟
 
@@ -49,13 +49,13 @@ A lightning-fast, feature-rich diff tool that analyzes text differences, enables
 
 ### Option 1: Use Online (Recommended)
 
-Visit **[diffalyze.app](https://diffalyze.app)** - No installation required!
+Visit **[diffalyze.com](https://diffalyze.com)** - No installation required!
 
 ### Option 2: Local Development
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/diffalyze.git
+git clone https://github.com/joseangel-romero/diffalyze.git
 cd diffalyze
 
 # Serve locally (Python example)
@@ -72,7 +72,7 @@ open http://localhost:8080
 
 1. Fork this repository
 2. Enable GitHub Pages in repository settings
-3. Your instance will be available at `https://yourusername.github.io/diffalyze`
+3. Your instance will be available at `https://joseangel-romero.github.io/diffalyze`
 
 ## 📋 Usage Examples
 
@@ -224,7 +224,7 @@ languageMap: {
 ### Setup Development Environment
 
 ```bash
-git clone https://github.com/yourusername/diffalyze.git
+git clone https://github.com/joseangel-romero/diffalyze.git
 cd diffalyze
 
 # Install development dependencies (optional)
@@ -265,7 +265,7 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ```bash
 # Fork the repo, then:
-git clone https://github.com/yourusername/diffalyze.git
+git clone https://github.com/joseangel-romero/diffalyze.git
 cd diffalyze
 git checkout -b feature/amazing-feature
 
@@ -307,7 +307,7 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 
 - 🐛 **Bug Reports**: [GitHub Issues](joseangel-romero/Diffalyze/issues)
 - 💡 **Feature Requests**: [GitHub Discussions](joseangel-romero/Diffalyze/discussions)  
-- 📧 **Contact**: [your.email@example.com](contact@romeroja.com)
+- 📧 **Contact**: [contact@romeroja.com](contact@romeroja.com)
 
 ---
 
