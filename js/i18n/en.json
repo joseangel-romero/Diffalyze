@@ -1,0 +1,106 @@
+{
+  "header": {
+    "brand": "DiffAlyze",
+    "compare": "Compare",
+    "history": "History",
+    "github": "GitHub ↗",
+    "menu_toggle": "Open navigation menu"
+  },
+  "hero": {
+    "title": "Professional text comparator",
+    "subtitle": "Analyze differences between files or text fragments quickly and accurately."
+  },
+  "toolbar": {
+    "analyze_btn": "⚡ Analyze",
+    "clear_btn": "🗑️ Clear",
+    "unified_view": "Unified view",
+    "hide_unchanged": "Hide unchanged",
+    "ignore_spaces": "Ignore spaces/case",
+    "ignore_blank": "Ignore blank lines",
+    "line_mode": "Line",
+    "word_mode": "Word",
+    "char_mode": "Char",
+    "regex_placeholder": "Regex to ignore…",
+    "regex_title": "RegExp pattern — will be removed before comparing",
+    "language_select": "Syntax highlight",
+    "shortcuts_btn": "Keyboard shortcuts ( ? )"
+  },
+  "text_areas": {
+    "original_text": "Original text",
+    "modified_text": "Modified text",
+    "original_placeholder": "Enter or paste the original text here…",
+    "modified_placeholder": "Enter or paste the modified text here…"
+  },
+  "diff_analysis": {
+    "title": "Difference analysis",
+    "search_placeholder": "Search in diff…",
+    "search_label": "Search differences by keyword",
+    "undo_btn": "↶ Undo",
+    "redo_btn": "↷ Redo",
+    "no_diff": "Use the «Analyze differences» button to start the comparison"
+  },
+  "merge": {
+    "title": "Merged result",
+    "copy_btn": "📋 Copy"
+  },
+  "unified": {
+    "header": "Unified View - Change Comparison",
+    "original": "Original",
+    "modified": "Modified",
+    "use_original": "Use original version",
+    "use_modified": "Use modified version"
+  },
+  "drag_drop": {
+    "original_title": "Original Text",
+    "original_desc": "Drop here to load as original text",
+    "modified_title": "Modified Text",
+    "modified_desc": "Drop here to load as modified text"
+  },
+  "history": {
+    "title": "Comparison History",
+    "empty": "No saved comparisons yet.<br>Comparisons will be saved automatically."
+  },
+  "shortcuts": {
+    "title": "Keyboard shortcuts",
+    "compare": "Execute comparison",
+    "undo": "Undo",
+    "redo": "Redo",
+    "unified": "Toggle Unified view",
+    "help": "Show / hide this help",
+    "close_btn": "Close"
+  },
+  "stats": {
+    "lines_added": "line added",
+    "lines_added_plural": "lines added",
+    "lines_removed": "line removed",
+    "lines_removed_plural": "lines removed",
+    "lines_modified": "line modified",
+    "lines_modified_plural": "lines modified",
+    "lines_moved": "line moved",
+    "lines_moved_plural": "lines moved",
+    "lines_unchanged": "unchanged lines"
+  },
+  "messages": {
+    "identical_texts": "Texts are identical",
+    "comparison_loaded": "Comparison loaded from history",
+    "file_loaded": "loaded as",
+    "auto_comparison": "Comparison executed automatically!",
+    "text_copied": "Merged text copied to clipboard",
+    "copy_error": "Could not copy:",
+    "history_deleted": "Item deleted from history",
+    "history_cleared": "History completely cleared",
+    "clear_history_confirm": "Delete All",
+    "clear_history_confirm_title": "Clear History",
+    "clear_history_confirm_desc": "This action will permanently delete all saved comparisons from your history.",
+    "cancel": "Cancel",
+    "regex_invalid": "Invalid or unsafe regex — ignored",
+    "enter_text_alert": "Please enter text in at least one of the fields",
+    "language_changed": "Language changed"
+  },
+  "language": {
+    "label": "Language",
+    "spanish": "Español",
+    "english": "English",
+    "french": "Français"
+  }
+}

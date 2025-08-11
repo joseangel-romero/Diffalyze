@@ -1,0 +1,58 @@
+/* ─────────── Messages & States ─────────── */
+.no-diff,
+.success-message {
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);  /* Reduced padding */
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--border-primary);
+  background: linear-gradient(135deg, var(--surface-1), var(--surface-2));
+  color: var(--text-tertiary);
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.success-message {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);  /* Reduced gap */
+  color: var(--success);
+  font-weight: 600;
+  border-color: var(--success);
+  background: var(--success-bg);
+}
+
+.success-message::before {
+  content: "✓";
+  display: inline-grid;
+  place-items: center;
+  width: 24px;  /* Reduced from 32px */
+  height: 24px; /* Reduced from 32px */
+  background: var(--success);
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 0.875rem;  /* Reduced font size */
+  font-weight: 700;
+  box-shadow: var(--shadow-md);
+}
+
+/* ─────────── Merge Container ─────────── */
+.merge-container {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);  /* Reduced from var(--space-2xl) */
+  margin-top: var(--space-md);  /* Reduced from var(--space-xl) */
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-xl);
+  position: relative;
+}
+
+.merge-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--success), var(--primary-500), var(--success));
+}

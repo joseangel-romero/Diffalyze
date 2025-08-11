@@ -1,0 +1,101 @@
+/* ─────────── Modern Hero Section ─────────── */
+.hero {
+  text-align: center;
+  padding-block: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background orbs */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  z-index: -1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 35%;
+  height: 35%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite reverse;
+  z-index: -1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+.hero-title {
+  font-size: clamp(2rem, 6vw, 3.5rem);  /* Reduced font size */
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, 
+    var(--primary-400) 0%, 
+    var(--primary-500) 30%,
+    var(--primary-300) 60%,
+    var(--primary-500) 100%);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--space-md);  /* Reduced from var(--space-xl) */
+  animation: 
+    fadeInUp 0.8s ease-out,
+    shimmer 4s ease-in-out infinite;
+  position: relative;
+}
+
+.hero-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-500), var(--primary-300));
+  border-radius: var(--radius-full);
+  opacity: 0.8;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-sub {
+  font-size: 1.125rem;  /* Reduced from 1.375rem */
+  color: var(--text-secondary);
+  max-width: 750px;
+  margin-inline: auto;
+  line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+  margin-bottom: var(--space-md);  /* Reduced from var(--space-xl) */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

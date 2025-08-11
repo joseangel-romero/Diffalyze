@@ -1,0 +1,106 @@
+{
+  "header": {
+    "brand": "DiffAlyze",
+    "compare": "Comparar",
+    "history": "Historial",
+    "github": "GitHub ↗",
+    "menu_toggle": "Abrir menú de navegación"
+  },
+  "hero": {
+    "title": "Comparador de texto profesional",
+    "subtitle": "Analiza diferencias entre archivos o fragmentos de texto de forma rápida y precisa."
+  },
+  "toolbar": {
+    "analyze_btn": "⚡ Analizar",
+    "clear_btn": "🗑️ Limpiar",
+    "unified_view": "Vista unified",
+    "hide_unchanged": "Ocultar sin cambios",
+    "ignore_spaces": "Ignorar espacios/case",
+    "ignore_blank": "Ignorar líneas vacías",
+    "line_mode": "Line",
+    "word_mode": "Word",
+    "char_mode": "Char",
+    "regex_placeholder": "Regex a ignorar…",
+    "regex_title": "Patrón RegExp — se eliminará antes de comparar",
+    "language_select": "Syntax highlight",
+    "shortcuts_btn": "Atajos de teclado ( ? )"
+  },
+  "text_areas": {
+    "original_text": "Texto original",
+    "modified_text": "Texto modificado",
+    "original_placeholder": "Ingresa o pega el texto original aquí…",
+    "modified_placeholder": "Ingresa o pega el texto modificado aquí…"
+  },
+  "diff_analysis": {
+    "title": "Análisis de diferencias",
+    "search_placeholder": "Buscar en diff…",
+    "search_label": "Buscar diferencias por palabra clave",
+    "undo_btn": "↶ Undo",
+    "redo_btn": "↷ Redo",
+    "no_diff": "Utiliza el botón «Analizar diferencias» para comenzar la comparación"
+  },
+  "merge": {
+    "title": "Resultado mergeado",
+    "copy_btn": "📋 Copiar"
+  },
+  "unified": {
+    "header": "Vista Unificada - Comparación de Cambios",
+    "original": "Original",
+    "modified": "Modificado",
+    "use_original": "Usar versión original",
+    "use_modified": "Usar versión modificada"
+  },
+  "drag_drop": {
+    "original_title": "Texto Original",
+    "original_desc": "Suelta aquí para cargar como texto original",
+    "modified_title": "Texto Modificado",
+    "modified_desc": "Suelta aquí para cargar como texto modificado"
+  },
+  "history": {
+    "title": "Historial de Comparaciones",
+    "empty": "No hay comparaciones guardadas aún.<br>Las comparaciones se guardarán automáticamente."
+  },
+  "shortcuts": {
+    "title": "Atajos de teclado",
+    "compare": "Ejecutar comparación",
+    "undo": "Undo",
+    "redo": "Redo",
+    "unified": "Alternar vista Unified",
+    "help": "Mostrar / ocultar esta ayuda",
+    "close_btn": "Cerrar"
+  },
+  "stats": {
+    "lines_added": "línea añadida",
+    "lines_added_plural": "líneas añadidas",
+    "lines_removed": "línea eliminada",
+    "lines_removed_plural": "líneas eliminadas",
+    "lines_modified": "línea modificada",
+    "lines_modified_plural": "líneas modificadas",
+    "lines_moved": "línea movida",
+    "lines_moved_plural": "líneas movidas",
+    "lines_unchanged": "líneas sin cambios"
+  },
+  "messages": {
+    "identical_texts": "Los textos son idénticos",
+    "comparison_loaded": "Comparación cargada desde el historial",
+    "file_loaded": "cargado como",
+    "auto_comparison": "¡Comparación ejecutada automáticamente!",
+    "text_copied": "Texto mergeado copiado al portapapeles",
+    "copy_error": "No se pudo copiar:",
+    "history_deleted": "Elemento eliminado del historial",
+    "history_cleared": "Historial borrado completamente",
+    "clear_history_confirm": "Borrar Todo",
+    "clear_history_confirm_title": "Borrar Historial",
+    "clear_history_confirm_desc": "Esta acción eliminará permanentemente todas las comparaciones guardadas de tu historial.",
+    "cancel": "Cancelar",
+    "regex_invalid": "Regex inválido o inseguro — se ignora",
+    "enter_text_alert": "Por favor, ingresa texto en al menos uno de los campos",
+    "language_changed": "Idioma cambiado"
+  },
+  "language": {
+    "label": "Idioma",
+    "spanish": "Español",
+    "english": "English",
+    "french": "Français"
+  }
+}

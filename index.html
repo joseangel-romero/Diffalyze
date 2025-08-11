@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+    <base href="./">
+    <meta charset="UTF-8" />
+        <meta name="description" content="Diffalyze: ultra-fast web tool for comparing and merging text or files, online code comparator">
+    <link rel="canonical" href="https://diffalyze.app/">
+    <meta property="og:title" content="Diffalyze — Professional text comparator">
+    <meta property="og:description" content="Analiza diferencias, fusiona cambios y comparte parches desde el navegador.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://diffalyze.app/">
+    <meta property="og:image" content="https://diffalyze.app/og-image.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Diffalyze",
+      "operatingSystem": "Web",
+      "applicationCategory": "DeveloperTool",
+      "url": "https://diffalyze.app/",
+      "description": "Ultra-fast online diff tool for comparing, merging and sharing text or file changes.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diffalyze — A modern, lightning-fast text-diff & merge tool for the web </title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon.ico">
+
+    <!--  Fonts  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Custom Scrollbar Styles -->
+    <style>
+        /* Custom scrollbar with premium design matching buttons */
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, 
+                rgba(26, 26, 28, 1) 0%, 
+                rgba(36, 36, 38, 1) 100%);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, 
+                #db2777 0%, 
+                #ec4899 50%,
+                #f472b6 100%);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 2px 8px rgba(236, 72, 153, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, 
+                #ec4899 0%, 
+                #f472b6 50%,
+                #f9a8d4 100%);
+            box-shadow: 
+                0 4px 12px rgba(236, 72, 153, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background: linear-gradient(135deg, 
+                #be185d 0%, 
+                #db2777 100%);
+            transform: scale(0.95);
+        }
+
+        ::-webkit-scrollbar-corner {
+            background: rgba(26, 26, 28, 1);
+        }
+
+        /* For Firefox */
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: #ec4899 rgba(26, 26, 28, 1);
+        }
+
+        /* Ensure scroll sync works with custom scrollbars */
+        .diff-column {
+            overflow: auto !important;
+            scroll-behavior: auto !important;
+        }
+        
+        /* Disable scroll behavior interference */
+        * {
+            scroll-behavior: auto !important;
+        }
+    </style>
+
+    <!-- Application Configuration -->
+    <script src="./js/core/config.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.2/dist/purify.min.js"
+            integrity="sha384-9Yf9mPbEPkG38YsnzrGZIDSPGDUNUQHqUoFAOTqAT+oFf5VaoFH1KMQQv9yKyoD5"
+            crossorigin="anonymous"
+            onerror="console.warn('DOMPurify CDN failed to load')"></script>
+
+    <!-- Prism.js syntax highlighting -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+          integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg=="
+          crossorigin="anonymous"
+          onerror="console.warn('Prism CSS failed to load')">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+            integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
+            crossorigin="anonymous"
+            onerror="console.warn('Prism.js failed to load')"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"
+            integrity="sha512-SkmBfuA2hqjzEVpmnMt/LINrjop3GKWqsuLSSB3e7iBmYK7JuWw4ldmmxwD9mdm2IRTTi0OxSAfEGvgEi0i2Kw=="
+            crossorigin="anonymous"
+            onerror="console.warn('Prism autoloader failed to load')"></script>
+
+    <!-- Progressive-Web-App -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff2aae">
+
+</head>
+<body>
+    <!--  HEADER  -->
+    <header class="site-header">
+        <div class="container inner">
+            <a href="#" class="brand">
+                <div class="brand-icon">D</div>
+                <span class="brand-text">Diffalyze</span>
+            </a>
+
+            <!--  NAVIGATION  -->
+            <nav class="nav-menu" id="mainNav">
+                <a href="https://github.com/joseangel-romero/Diffalyze" target="_blank" class="nav-link" data-i18n="header.github">GitHub ↗</a>
+                
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <select id="languageSelector" onchange="setLanguage(this.value)" title="Select language" aria-label="Language selector">
+                        <option value="es" data-i18n="language.spanish">Español</option>
+                        <option value="en" data-i18n="language.english">English</option>
+                        <option value="fr" data-i18n="language.french">Français</option>
+                    </select>
+                </div>
+            </nav>
+
+            <!--  Mobile Burger  -->
+            <button class="burger" type="button" role="button" tabindex="0" aria-label="Open navigation menu" data-i18n="header.menu_toggle" aria-expanded="false" onclick="toggleBurger(this)">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!--  MAIN  -->
+    <main class="container" id="comparison">
+
+        <div class="compact-toolbar" role="toolbar" aria-label="Opciones de comparación">
+          
+          <!-- Main Action Bar -->
+          <div class="main-actions">
+            <button class="btn btn-primary" id="compareBtn" onclick="compareTexts()" aria-label="Analizar diferencias (⌘/Ctrl+Enter)" data-i18n="toolbar.analyze_btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+              <span>Analizar</span>
+            </button>
+            <button class="btn btn-secondary" id="clearBtn" onclick="clearAll()" aria-label="Limpiar todo" data-i18n="toolbar.clear_btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+              </svg>
+              <span>Limpiar</span>
+            </button>
+            
+            <!-- Compact Toggle Group -->
+            <div class="quick-toggles">
+              <button class="toggle-btn" data-toggle="unifiedToggle" title="Vista Unified" data-i18n-title="toolbar.unified_view">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="9" y1="9" x2="15" y2="9"/>
+                  <line x1="9" y1="12" x2="15" y2="12"/>
+                  <line x1="9" y1="15" x2="15" y2="15"/>
+                </svg>
+                <span class="toggle-label" data-i18n="toolbar.unified_view">Unified</span>
+              </button>
+              <button class="toggle-btn" data-toggle="collapseToggle" title="Ocultar iguales" data-i18n-title="toolbar.hide_unchanged">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M8 6l4-4 4 4"/>
+                  <path d="M8 18l4 4 4-4"/>
+                  <line x1="12" y1="2" x2="12" y2="22"/>
+                </svg>
+                <span class="toggle-label" data-i18n="toolbar.hide_unchanged">Ocultar</span>
+              </button>
+              <button class="toggle-btn" data-toggle="ignoreToggle" title="Ignorar espacios/case" data-i18n-title="toolbar.ignore_spaces">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14.5 4h-5L7 14h3.5l.5-1.5h2l.5 1.5H17L14.5 4z"/>
+                  <path d="M10.5 8.5L11 7h2l.5 1.5"/>
+                </svg>
+                <span class="toggle-label" data-i18n="toolbar.ignore_spaces">Espacios</span>
+              </button>
+            </div>
+
+            <!-- Options Dropdown -->
+            <div class="options-dropdown">
+              <button class="dropdown-btn" onclick="toggleOptionsMenu()" aria-label="Más opciones">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="1"/>
+                  <circle cx="12" cy="5" r="1"/>
+                  <circle cx="12" cy="19" r="1"/>
+                </svg>
+              </button>
+              <div class="dropdown-menu" id="optionsMenu">
+                <div class="dropdown-section">
+                  <div class="section-title">Filtros</div>
+                  <label class="dropdown-item">
+                    <input type="checkbox" id="blankToggle">
+                    <span data-i18n="toolbar.ignore_blank">Líneas vacías</span>
+                  </label>
+                </div>
+                
+                <div class="dropdown-section">
+                  <div class="section-title">Modo</div>
+                  <label class="dropdown-item radio-item">
+                    <input type="radio" name="hlMode" id="lineMode" value="line" checked>
+                    <span data-i18n="toolbar.line_mode">Line</span>
+                  </label>
+                  <label class="dropdown-item radio-item">
+                    <input type="radio" name="hlMode" id="wordMode" value="word">
+                    <span data-i18n="toolbar.word_mode">Word</span>
+                  </label>
+                  <label class="dropdown-item radio-item">
+                    <input type="radio" name="hlMode" id="charMode" value="char">
+                    <span data-i18n="toolbar.char_mode">Char</span>
+                  </label>
+                </div>
+                
+                <div class="dropdown-section">
+                  <div class="section-title">Avanzado</div>
+                  <div class="dropdown-item input-item">
+                    <input id="regexInput" placeholder="Regex..." data-i18n="toolbar.regex_placeholder" title="Patrón RegExp" data-i18n-title="toolbar.regex_title">
+                  </div>
+                  <div class="dropdown-item select-item">
+                    <select id="languageSelect" title="Syntax highlight" data-i18n-title="language_select">
+                      <option value="">Plain</option>
+                      <option value="javascript">JavaScript</option>
+                      <option value="python">Python</option>
+                      <option value="java">Java</option>
+                      <option value="css">CSS</option>
+                      <option value="markup">HTML</option>
+                      <option value="json">JSON</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shortcuts Button -->
+            <button class="icon-btn-compact" id="shortcutsBtn" type="button" onclick="toggleShortcutsModal()" aria-label="Atajos de teclado">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="5" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </button>
+
+            <!-- History Button -->
+            <button class="icon-btn-compact" id="historyBtn" type="button" onclick="toggleHistoryPanel()" aria-label="Historial de cambios">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                <path d="M3 3v5h5"/>
+                <path d="M12 7v5l4 2"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Hidden checkboxes for the toggle buttons -->
+          <input type="checkbox" id="unifiedToggle" style="display: none;">
+          <input type="checkbox" id="collapseToggle" style="display: none;">
+          <input type="checkbox" id="ignoreToggle" style="display: none;">
+
+        </div>
+
+        <section class="text-areas">
+            <div class="text-section">
+                <h3 data-i18n="text_areas.original_text">Texto original</h3>
+                <textarea id="originalText" class="textarea" placeholder="Ingresa o pega el texto original aquí…"></textarea>
+                <input type="file" id="originalFile" class="file-input" accept="*/*" onchange="loadFile('originalFile', 'originalText')" />
+            </div>
+
+            <div class="text-section">
+                <h3 data-i18n="text_areas.modified_text">Texto modificado</h3>
+                <textarea id="changedText" class="textarea" placeholder="Ingresa o pega el texto modificado aquí…"></textarea>
+                <input type="file" id="changedFile" class="file-input" accept="*/*" onchange="loadFile('changedFile', 'changedText')" />
+            </div>
+        </section>
+
+        <section class="diff-container" role="region" aria-labelledby="diffTitle">
+            <h3 id="diffTitle" data-i18n="diff_analysis.title">Análisis de diferencias</h3>
+            <!-- Search inside diff -->
+            <div class="search-box diff-search">
+                <input type="text" id="searchInput" placeholder="Buscar en diff…" data-i18n="diff_analysis.search_placeholder" aria-label="Buscar diferencias por palabra clave" data-i18n-label="diff_analysis.search_label" />
+                <button type="button" class="search-btn" onclick="prevSearch()">↑</button>
+                <button type="button" class="search-btn" onclick="nextSearch()">↓</button>
+            </div>
+            <!-- Undo / Redo - Hidden since we now have history in toolbar -->
+            <div class="history-buttons" style="display: none;">
+                <button id="undoBtn" class="history-btn" onclick="undoMerge()" data-i18n="diff_analysis.undo_btn">↶ Undo</button>
+                <button id="redoBtn" class="history-btn" onclick="redoMerge()" data-i18n="diff_analysis.redo_btn">↷ Redo</button>
+            </div>
+            <div id="diffResult" class="diff-container no-diff" data-i18n="diff_analysis.no_diff">Utiliza el botón «Analizar diferencias» para comenzar la comparación</div>
+        </section>
+
+        <!--  Resultado mergeado  -->
+        <section id="mergeContainer" class="merge-container" role="region" aria-labelledby="mergeTitle" style="display: none;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                <h3 id="mergeTitle" style="margin: 0; font-size: 1rem;" data-i18n="merge.title">Resultado mergeado</h3>
+                <button class="btn btn-copy" onclick="copyMergedText()" aria-label="Copiar resultado mergeado" data-i18n="merge.copy_btn">
+                  📋 Copiar
+                </button>
+            </div>
+            <pre id="mergedTextArea" class="textarea" style="height: 340px; overflow: auto;"><code class="language-plaintext" id="mergedCode"></code></pre>
+        </section>
+    </main>
+
+    <!-- Drag & Drop Overlay -->
+    <div id="dragOverlay" class="drag-overlay">
+        <div class="drag-zones">
+            <div class="drag-zone" id="dropZoneOriginal" data-target="original" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') this.click()">
+                <div class="drag-zone-icon">📄</div>
+                <div class="drag-zone-title" data-i18n="drag_drop.original_title">Texto Original</div>
+                <div class="drag-zone-desc" data-i18n="drag_original_desc">Suelta aquí para cargar como texto original</div>
+            </div>
+            <div class="drag-zone" id="dropZoneChanged" data-target="changed" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') this.click()">
+                <div class="drag-zone-icon">📝</div>
+                <div class="drag-zone-title" data-i18n="drag_modified_title">Texto Modificado</div>
+                <div class="drag-zone-desc" data-i18n="drag_modified_desc">Suelta aquí para cargar como texto modificado</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Panel -->
+    <div id="historyPanel" class="history-panel">
+        <div class="history-header">
+            <h3 class="history-title" data-i18n="history.title">Historial de Comparaciones</h3>
+            <div class="history-actions">
+                <button id="undoBtn" class="history-btn" onclick="undoMerge()" data-i18n="diff_analysis.undo_btn" aria-label="Undo">↶</button>
+                <button id="redoBtn" class="history-btn" onclick="redoMerge()" data-i18n="diff_analysis.redo_btn" aria-label="Redo">↷</button>
+                <button class="history-close" onclick="toggleHistoryPanel()">×</button>
+            </div>
+        </div>
+        <div class="history-content" id="historyContent">
+            <div class="history-empty" data-i18n="history.empty">
+                No hay comparaciones guardadas aún.<br>
+                Las comparaciones se guardarán automáticamente.
+            </div>
+        </div>
+    </div>
+
+    <!-- History Toggle Button - Hidden since it's now in toolbar -->
+    <button class="history-toggle" onclick="toggleHistoryPanel()" title="Ver historial de comparaciones" style="display: none;"></button>
+
+    <!--  Shortcuts Modal -->
+    <div id="shortcutsModal" class="shortcuts-modal" role="dialog"
+        aria-labelledby="shortcutsTitle" aria-modal="true">
+    <div class="shortcuts-content">
+        <h3 id="shortcutsTitle" data-i18n="shortcuts.title">Atajos de teclado</h3>
+        <ul class="shortcuts-list">
+        <li><kbd>⌘</kbd>/<kbd>Ctrl</kbd>+<kbd>Enter</kbd> — <span data-i18n="shortcuts.compare">Ejecutar comparación</span></li>
+        <li><kbd>u</kbd> — <span data-i18n="shortcuts.undo">Undo</span></li>
+        <li><kbd>r</kbd> — <span data-i18n="shortcuts.redo">Redo</span></li>
+        <li><kbd>m</kbd> — <span data-i18n="shortcuts.unified">Alternar vista Unified</span></li>
+        <li><kbd>?</kbd> — <span data-i18n="shortcuts.help">Mostrar / ocultar esta ayuda</span></li>
+        </ul>
+        <button class="btn btn-secondary" type="button"
+                onclick="toggleShortcutsModal()" data-i18n="shortcuts.close_btn">Cerrar</button>
+    </div>
+    </div>
+
+    <!-- Confirm Clear History Modal -->
+    <div id="confirmClearModal" class="confirm-modal" role="dialog"
+        aria-labelledby="confirmTitle" aria-modal="true" style="display: none;">
+        <div class="confirm-content">
+            <div class="confirm-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="8" x2="12" y2="12"/>
+                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+            </div>
+            <h3 id="confirmTitle" data-i18n="messages.clear_history_confirm_title">Clear History</h3>
+            <p data-i18n="messages.clear_history_confirm_desc">This action will permanently delete all saved comparisons from your history.</p>
+            <div class="confirm-actions">
+                <button class="btn btn-secondary" onclick="closeConfirmModal()" data-i18n="messages.cancel">Cancel</button>
+                <button class="btn btn-danger" onclick="confirmClearHistory()" data-i18n="messages.clear_history_confirm">Delete All</button>
+            </div>
+        </div>
+    </div>
+
+    <!--  SCRIPTS  -->
+    <script src="./js/core/config.js"></script>
+    <script src="./js/i18n/i18n.js"></script>
+    
+    <!-- Core Scripts -->
+    <script src="./js/core/state.js"></script>
+    <script src="./js/core/workers.js"></script>
+    <script src="./js/core/diff.js"></script>
+    <script src="./js/core/compare.js"></script>
+    
+    <!-- UI Scripts -->
+    <script src="./js/ui/display.js"></script>
+    <script src="./js/ui/merge.js"></script>
+    <script src="./js/ui/history.js"></script>
+    <script src="./js/ui/search.js"></script>
+    <script src="./js/ui/interactions.js"></script>
+    <script src="./js/ui/toast.js"></script>
+    <script src="./js/ui/navigation.js"></script>
+    
+    <!-- Utility Scripts -->
+    <script src="./js/utils/files.js"></script>
+    <script src="./js/utils/i18n.js"></script>
+    <script src="./js/utils/events.js"></script>
+    
+    <!-- Main Application Entry Point -->
+    <script src="./js/main.js"></script>
+</body>
+</html>

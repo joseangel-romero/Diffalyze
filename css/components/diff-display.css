@@ -1,0 +1,360 @@
+/* ─────────── Modern Diff Display ─────────── */
+.diff-result {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--space-md);  /* Reduced from var(--space-xl) */
+}
+
+.diff-column {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  max-height: 600px;
+  overflow: auto;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-500) transparent;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  /* Ensure clean rendering */
+  contain: layout style;
+}
+
+.diff-column::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary-500), transparent);
+}
+
+.diff-column::-webkit-scrollbar {
+  width: 8px;
+}
+
+.diff-column::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+.diff-column::-webkit-scrollbar-thumb {
+  background: var(--primary-500);
+  border-radius: 4px;
+  transition: background var(--timing-fast);
+}
+
+.diff-column::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-400);
+}
+
+.diff-column h4 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-lg);
+  color: var(--text-tertiary);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+/* Enhanced diff lines */
+.diff-line {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-left: 3px solid transparent;
+  border-radius: var(--radius-sm);
+  transition: all var(--timing-fast);
+  white-space: pre-wrap;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 1px;
+}
+
+.diff-line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: linear-gradient(90deg, var(--primary-500), transparent);
+  transition: width var(--timing-fast);
+}
+
+.diff-line:hover {
+  background: var(--surface-2);
+  transform: translateX(4px);
+}
+
+.diff-line:hover::before {
+  width: 100%;
+}
+
+.line-number {
+  width: 48px;
+  text-align: right;
+  opacity: 0.6;
+  flex-shrink: 0;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.line-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Enhanced merge buttons */
+.merge-btn {
+  font-size: 0.75rem;
+  padding: var(--space-xs) var(--space-sm);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: all var(--timing-fast);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.merge-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left var(--timing-normal);
+}
+
+.merge-btn:hover::before {
+  left: 100%;
+}
+
+.merge-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.merge-left {
+  background: linear-gradient(135deg, var(--error), #dc2626);
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+.merge-right {
+  background: linear-gradient(135deg, var(--success), #059669);
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Enhanced merge actions for unified view */
+.merge-actions {
+  display: flex;
+  gap: var(--space-xs);
+  margin-left: var(--space-sm);
+  align-items: center;
+}
+
+.merge-actions .merge-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 0.7rem;
+  min-width: auto;
+  white-space: nowrap;
+}
+
+.merge-icon {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.merge-text {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  font-weight: 600;
+}
+
+.merge-left .merge-text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.merge-right .merge-text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Hover states with better feedback */
+.merge-left:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  transform: translateY(-1px) scale(1.02);
+}
+
+.merge-right:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Pressed state */
+.merge-btn[aria-pressed="true"] {
+  background: var(--surface-4) !important;
+  color: var(--text-secondary) !important;
+  transform: scale(0.95);
+  opacity: 0.6;
+}
+
+/* Unified view header and legend */
+.unified-header {
+  background: var(--surface-2);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.unified-header h4 {
+  margin: 0 0 var(--space-sm) 0;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.unified-legend {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.legend-btn {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.merge-left-demo {
+  background: linear-gradient(135deg, var(--error), #dc2626);
+}
+
+.merge-right-demo {
+  background: linear-gradient(135deg, var(--success), #059669);
+}
+
+.legend-text {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Enhanced diff states */
+.diff-added {
+  background: var(--success-bg);
+  border-left-color: var(--success);
+  color: #d1fae5;
+}
+
+.diff-removed {
+  background: var(--error-bg);
+  border-left-color: var(--error);
+  color: #fed7d7;
+}
+
+.diff-modified {
+  background: var(--warning-bg);
+  border-left-color: var(--warning);
+  color: #fef3c7;
+}
+
+.diff-moved {
+  background: rgba(139, 92, 246, 0.1);
+  border-left-color: var(--accent-500);
+  color: #ede9fe;
+}
+
+.diff-unchanged {
+  background: var(--surface-1);
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.diff-empty {
+  background: transparent;
+  color: transparent;
+  user-select: none;
+}
+
+/* Selected/accepted state */
+.diff-line.accepted {
+  background: rgba(59, 130, 246, 0.15);
+  border-left-color: var(--primary-500);
+  font-weight: 600;
+  box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+.diff-line.accepted::after {
+  content: "✓";
+  position: absolute;
+  right: var(--space-sm);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-400);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+/* Block controls */
+.block-ctrl {
+  margin: var(--space-md) 0;
+  text-align: center;
+}
+
+.block-ctrl .merge-btn {
+  width: 90%;
+  font-size: 0.875rem;
+  padding: var(--space-sm) var(--space-lg);
+}
+
+/* Unified view enhancements */
+body[data-highlight="unified"] .diff-column {
+  width: 100%;
+  max-width: none;
+  max-height: none; /* Remove height restriction for unified view */
+  overflow: visible; /* Allow natural flow */
+}
+
+body[data-highlight="unified"] .diff-result {
+  grid-template-columns: 1fr; /* Single column for unified view */
+}
+
+@media (max-width: 768px) {
+  .diff-result {
+    grid-template-columns: 1fr;
+  }
+  
+  .diff-column {
+    max-height: 500px;
+  }
+}

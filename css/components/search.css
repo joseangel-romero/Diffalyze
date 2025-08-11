@@ -1,0 +1,94 @@
+/* ─────────── Enhanced Search & Navigation ─────────── */
+.search-box,
+.diff-search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  transition: all var(--timing-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.search-box {
+  background: #ffffff;
+  padding: var(--space-sm) var(--space-md);
+}
+
+.search-box:focus-within {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  font-size: 0.875rem;
+  background: transparent;
+  color: #000000;
+  min-width: 180px;
+}
+
+.diff-search {
+  background: var(--bg-secondary);
+  padding: var(--space-sm) var(--space-md);
+  margin-inline: auto;
+  margin-bottom: var(--space-lg);
+  width: fit-content;
+  max-width: 480px;
+  backdrop-filter: blur(10px);
+}
+
+.diff-search:focus-within {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.diff-search input {
+  border: none;
+  outline: none;
+  font-size: 0.875rem;
+  background: transparent;
+  color: var(--text-primary);
+  min-width: 200px;
+}
+
+.diff-search input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-btn {
+  font-size: 0.75rem;
+  padding: var(--space-xs) var(--space-md);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  transition: all var(--timing-fast);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.search-btn:hover {
+  background: var(--primary-500);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.search-hit {
+  background: var(--warning);
+  color: #000000;
+  padding: 0 2px;
+  border-radius: var(--radius-xs);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(245, 158, 11, 0.3);
+}
+
+.search-current {
+  background: var(--primary-500) !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4) !important;
+}

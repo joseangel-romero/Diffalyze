@@ -1,0 +1,28 @@
+/* ═══════════════════════════════════════════════════════════════
+   DIFFALYZE - MAIN STYLESHEET
+   Separado en módulos para mejor mantenimiento y organización
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─────────── Base Styles ─────────── */
+@import url('./_variables.css');
+@import url('./_base.css');
+
+/* ─────────── Layout Components ─────────── */
+@import url('./layout/header.css');
+@import url('./layout/hero.css');
+
+/* ─────────── UI Components ─────────── */
+@import url('./components/buttons.css');
+@import url('./components/toolbar.css');
+@import url('./components/text-areas.css');
+@import url('./components/diff-summary.css');
+@import url('./components/diff-display.css');
+@import url('./components/search.css');
+@import url('./components/drag-drop.css');
+@import url('./components/history.css');
+@import url('./components/toast.css');
+@import url('./components/modal.css');
+@import url('./components/messages.css');
+
+/* ─────────── Utilities ─────────── */
+@import url('./_utilities.css');

@@ -1,0 +1,168 @@
+/* ─────────── Modern Text Areas ─────────── */
+.text-areas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: var(--space-lg);  /* Reduced from var(--space-2xl) */
+  margin-bottom: var(--space-xl);  /* Reduced from var(--space-3xl) */
+}
+
+.text-section {
+  background: linear-gradient(145deg, var(--surface-1) 0%, var(--surface-2) 100%);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);  /* Reduced from var(--radius-2xl) */
+  padding: var(--space-lg);  /* Reduced from var(--space-2xl) */
+  position: relative;
+  transition: all var(--timing-smooth);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+/* Ambient glow effect */
+.text-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--primary-500) 30%, 
+    var(--primary-400) 50%,
+    var(--primary-500) 70%, 
+    transparent 100%);
+  opacity: 0;
+  transition: opacity var(--timing-smooth);
+}
+
+/* Subtle grid pattern overlay */
+.text-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(236, 72, 153, 0.1) 1px, transparent 0);
+  background-size: 20px 20px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.text-section:hover {
+  border-color: var(--primary-500);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 
+    var(--shadow-2xl), 
+    var(--glow-primary),
+    0 0 60px rgba(236, 72, 153, 0.15);
+}
+
+.text-section:hover::before {
+  opacity: 1;
+}
+
+.text-section h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--space-xl);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  color: var(--text-primary);
+  position: relative;
+  z-index: 2;
+}
+
+.text-section h3::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-300));
+  box-shadow: 
+    var(--glow-primary),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.textarea {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(145deg, var(--surface-2) 0%, var(--surface-3) 100%);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  resize: vertical;
+  transition: all var(--timing-smooth);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.2),
+    var(--shadow-md);
+  position: relative;
+  z-index: 2;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  background: linear-gradient(145deg, var(--surface-3) 0%, var(--surface-4) 100%);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.2),
+    var(--shadow-lg),
+    var(--glow-primary);
+  transform: scale(1.005);
+}
+
+.textarea:hover {
+  border-color: var(--primary-400);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.2),
+    var(--shadow-lg);
+}
+
+.textarea::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.file-input {
+  margin-top: var(--space-lg);
+  width: 100%;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+  transition: all var(--timing-fast);
+  cursor: pointer;
+}
+
+.file-input:hover {
+  border-color: var(--border-accent);
+  background: var(--bg-tertiary);
+}
+
+.text-section.drag-over {
+  border-color: var(--primary-500);
+  background: rgba(59, 130, 246, 0.05);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-xl), 0 0 30px rgba(59, 130, 246, 0.2);
+}
+
+@media (max-width: 768px) {
+  .text-areas {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,97 @@
+/* ─────────── CSS Variables ─────────── */
+:root {
+  /* Modern Pink Palette */
+  --primary-900: #831843;
+  --primary-800: #9d174d;
+  --primary-700: #be185d;
+  --primary-600: #db2777;
+  --primary-500: #ec4899;
+  --primary-400: #f472b6;
+  --primary-300: #f9a8d4;
+  --primary-200: #fbb6ce;
+  --primary-100: #fce7f3;
+  --primary-50: #fdf2f8;
+  
+  /* Accent colors */
+  --accent-600: #7c3aed;
+  --accent-500: #8b5cf6;
+  --accent-400: #a78bfa;
+  --accent-300: #c4b5fd;
+  
+  /* Semantic colors */
+  --success: #10b981;
+  --success-bg: rgba(16, 185, 129, 0.1);
+  --warning: #f59e0b;
+  --warning-bg: rgba(245, 158, 11, 0.1);
+  --error: #ef4444;
+  --error-bg: rgba(239, 68, 68, 0.1);
+  --info: #06b6d4;
+  --info-bg: rgba(6, 182, 212, 0.1);
+
+  /* Sophisticated Dark Background System */
+  --bg-primary: #0f0f10;
+  --bg-secondary: #1a1a1c;
+  --bg-tertiary: #242426;
+  --bg-elevated: #2d2d30;
+  --bg-card: #1e1e20;
+  --bg-glass: rgba(30, 30, 32, 0.8);
+  --bg-overlay: rgba(0, 0, 0, 0.8);
+  
+  /* Surface system with subtle variations */
+  --surface-1: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --surface-3: rgba(255, 255, 255, 0.09);
+  --surface-4: rgba(255, 255, 255, 0.13);
+  --surface-5: rgba(255, 255, 255, 0.18);
+  
+  /* Modern Border System */
+  --border-primary: rgba(255, 255, 255, 0.09);
+  --border-secondary: rgba(255, 255, 255, 0.05);
+  --border-accent: rgba(236, 72, 153, 0.25);
+  --border-hover: rgba(255, 255, 255, 0.15);
+
+  /* Typography system with better contrast */
+  --text-primary: #fafafa;
+  --text-secondary: #e4e4e7;
+  --text-tertiary: #a1a1aa;
+  --text-muted: #71717a;
+  --text-disabled: #52525b;
+  --text-accent: var(--primary-400);
+
+  /* Enhanced spacing system - More compact */
+  --space-xs: 0.125rem;   /* Reduced from 0.25rem */
+  --space-sm: 0.375rem;   /* Reduced from 0.5rem */
+  --space-md: 0.75rem;    /* Reduced from 1rem */
+  --space-lg: 1rem;       /* Reduced from 1.5rem */
+  --space-xl: 1.5rem;     /* Reduced from 2rem */
+  --space-2xl: 2rem;      /* Reduced from 3rem */
+  --space-3xl: 2.5rem;    /* Reduced from 4rem */
+  
+  /* Modern border radius */
+  --radius-xs: 0.125rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  
+  /* Enhanced shadows for depth */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -4px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.12);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* Glow effects for modern UI */
+  --glow-primary: 0 0 20px rgba(236, 72, 153, 0.3);
+  --glow-accent: 0 0 20px rgba(124, 58, 237, 0.3);
+  
+  /* Animation system */
+  --timing-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --timing-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --timing-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --timing-bounce: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --timing-spring: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}

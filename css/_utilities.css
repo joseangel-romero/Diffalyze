@@ -1,0 +1,39 @@
+/* ─────────── Responsive tweaks ─────────── */
+@media (max-width:640px){
+  .controls{flex-direction:column;align-items:stretch;}
+  .segmented-controls{justify-content:center;}
+  .history-buttons{flex-wrap:wrap;}
+  .diff-result{grid-template-columns:1fr;}
+}
+
+.lang-select{
+        font-size:.8rem;
+        padding:.45rem .8rem;
+        border:1px solid var(--border-primary);
+        border-radius:8px;
+        background:#fff;
+        color:#000;
+        cursor:pointer;
+    }
+
+/* Word / Char diff highlight (only when active) ------------------------- */
+body[data-highlight="word"] .word-diff{
+  background: var(--warning);
+  color: #000;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+body[data-highlight="char"] .char-diff{
+  background: var(--warning);
+  color: #000;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* Visible focus for pseudo-buttons and burger */
+.drag-zone[role="button"]:focus-visible,
+.history-item[role="button"]:focus-visible,
+.burger:focus-visible{
+  outline: 2px solid var(--primary-600);
+  outline-offset: 2px;
+}

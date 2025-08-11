@@ -1,0 +1,73 @@
+/* ─────────── Enhanced Toast Notifications ─────────── */
+.toast-notification {
+  position: fixed !important;
+  right: var(--space-xl) !important;
+  padding: var(--space-lg) var(--space-xl) !important;
+  border-radius: var(--radius-lg) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600;
+  z-index: 10000 !important;
+  color: #ffffff !important;
+  box-shadow: var(--shadow-xl) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  max-width: 380px !important;
+  min-width: 240px;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  transition: all var(--timing-normal) !important;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.toast-notification::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary-500), var(--accent-500));
+  border-radius: inherit;
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.toast-notification::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left var(--timing-normal);
+}
+
+.toast-notification:hover {
+  transform: translateX(-8px) scale(1.02) !important;
+  box-shadow: var(--shadow-xl), 0 0 40px rgba(59, 130, 246, 0.3) !important;
+}
+
+.toast-notification:hover::after {
+  left: 100%;
+}
+
+/* Error toast variant */
+.toast-notification[style*="--error"] {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.toast-notification[style*="--error"]::before {
+  background: linear-gradient(135deg, var(--error), #dc2626);
+}
+
+@media (max-width: 768px) {
+  .toast-notification {
+    right: var(--space-lg) !important;
+    left: var(--space-lg) !important;
+    max-width: none !important;
+    font-size: 0.8rem !important;
+  }
+}
