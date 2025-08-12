@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://joseangel-romero.github.io/Diffalyze/sitemap.xml
+Sitemap: https://diffalyze.com/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
